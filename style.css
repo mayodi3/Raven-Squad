@@ -1,0 +1,531 @@
+:root {
+  --primary-green: #00ff9d;
+  --secondary-green: #00cc7e;
+  --dark-green: #005c38;
+  --neon-green: #39ff14;
+  --background-dark: #0a0e12;
+  --background-light: #f0f8ff;
+  --grid-color: rgba(0, 255, 157, 0.1);
+  --text-shadow: 0 0 5px var(--primary-green), 0 0 10px var(--primary-green);
+  --speedy-color: rgba(255, 217, 0, 0.8);
+  --tank-color: rgba(255, 0, 85, 0.8);
+  --slow-color: rgba(0, 255, 255, 0.8);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-dark);
+  font-family: "Rajdhani", sans-serif;
+  color: var(--primary-green);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  touch-action: none; /* Prevent default touch actions on mobile */
+}
+
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Start Screen */
+#startScreen {
+  background-color: var(--background-dark);
+  z-index: 10;
+}
+
+.header {
+  margin-bottom: 40px;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 3rem;
+  letter-spacing: 4px;
+  text-shadow: var(--text-shadow);
+  margin: 5px 0;
+  position: relative;
+}
+
+.creator,
+.subtitle {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  letter-spacing: 2px;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Instructions Screen */
+.instructions-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 0 20px var(--primary-green);
+}
+
+.instructions-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: var(--text-shadow);
+}
+
+.instructions-section {
+  margin-bottom: 30px;
+}
+
+.instructions-section h3 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--primary-green);
+  padding-bottom: 5px;
+}
+
+.instruction-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.instruction-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.standard-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--primary-green);
+  color: var(--primary-green);
+}
+
+.speedy-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--speedy-color);
+  color: var(--speedy-color);
+}
+
+.tank-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--tank-color);
+  color: var(--tank-color);
+}
+
+.heart-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--tank-color);
+  color: var(--tank-color);
+  position: relative;
+}
+
+.heart-icon::before {
+  content: "❤️";
+  font-size: 20px;
+}
+
+.star-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--speedy-color);
+  color: var(--speedy-color);
+  position: relative;
+}
+
+.star-icon::before {
+  content: "★";
+  font-size: 30px;
+}
+
+.clock-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--slow-color);
+  color: var(--slow-color);
+  position: relative;
+}
+
+.clock-icon::before {
+  content: "⏱";
+  font-size: 20px;
+}
+
+.instruction-text h4 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.instruction-text p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.instructions-section > p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+#backToMenuBtn {
+  margin-top: 20px;
+  align-self: center;
+}
+
+/* Game Screen */
+#gameScreen {
+  background-color: var(--background-light);
+  z-index: 5;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/images/bg.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  touch-action: none; /* Prevent default touch actions on mobile */
+}
+
+.game-hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  z-index: 20;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.score-display {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.2rem;
+  color: var(--primary-green);
+  text-shadow: var(--text-shadow);
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border-left: 3px solid var(--primary-green);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  pointer-events: none;
+}
+
+.score-display .score,
+.score-display .level,
+.score-display .lives,
+.score-display .combo {
+  display: inline-block;
+}
+
+.score-display .combo {
+  color: #ffffff;
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+}
+
+#gameOverControls {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.cyber-button {
+  --button-width: 200px;
+  --button-height: 50px;
+
+  width: var(--button-width);
+  height: var(--button-height);
+  background: transparent;
+  border: 2px solid var(--primary-green);
+  color: var(--primary-green);
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.cyber-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-green);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+
+.cyber-button:hover {
+  color: var(--background-dark);
+  text-shadow: none;
+}
+
+.cyber-button:hover::before {
+  opacity: 1;
+}
+
+.cyber-button__glitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-green);
+  opacity: 0;
+  z-index: -2;
+}
+
+.cyber-button:hover .cyber-button__glitch {
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    opacity: 0.1;
+  }
+  25% {
+    transform: translate(-5px, 5px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(5px, -5px);
+    opacity: 0.1;
+  }
+  75% {
+    transform: translate(-5px, -5px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 0.1;
+  }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .score-display {
+    font-size: 0.9rem;
+    gap: 8px;
+    padding: 4px 8px;
+  }
+
+  .cyber-button {
+    --button-width: 150px;
+    --button-height: 40px;
+    font-size: 1rem;
+  }
+
+  .creator,
+  .subtitle {
+    font-size: 0.7rem;
+  }
+
+  .instructions-title {
+    font-size: 1.5rem;
+  }
+
+  .instructions-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .instruction-text h4 {
+    font-size: 1rem;
+  }
+
+  .instruction-text p {
+    font-size: 0.9rem;
+  }
+
+  .instruction-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  #gameOverControls {
+    top: 75%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  #gameOverControls {
+    top: 75%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .score-display {
+    font-size: 0.8rem;
+    gap: 5px;
+  }
+
+  .cyber-button {
+    --button-width: 120px;
+    --button-height: 35px;
+    font-size: 0.8rem;
+  }
+
+  .instructions-container {
+    padding: 15px;
+  }
+
+  .instructions-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .instructions-section h3 {
+    font-size: 1rem;
+  }
+
+  .instruction-text h4 {
+    font-size: 0.9rem;
+  }
+
+  .instruction-text p {
+    font-size: 0.8rem;
+  }
+
+  .instruction-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  .heart-icon::before,
+  .clock-icon::before {
+    font-size: 16px;
+  }
+
+  .star-icon::before {
+    font-size: 20px;
+  }
+}
+
+/* Landscape orientation handling */
+@media screen and (orientation: portrait) {
+  .orientation-message {
+    display: flex;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .orientation-message {
+    display: none;
+  }
+}
+
+.orientation-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-dark);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.orientation-message img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  animation: rotate 2s infinite ease-in-out;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.orientation-message p {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.2rem;
+  color: var(--primary-green);
+  text-shadow: var(--text-shadow);
+  margin-bottom: 10px;
+}

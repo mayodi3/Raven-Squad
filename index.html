@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="screen-orientation" content="landscape" />
+    <meta name="msapplication-orientation" content="landscape" />
+    <meta name="orientation" content="landscape" />
+    <title>Raven Squad</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Start Screen -->
+    <div id="startScreen" class="screen">
+      <div class="header">
+        <h1>
+          <span class="creator">Made by Mayodi</span>
+          <span class="title">Raven Squad</span>
+          <span class="subtitle">Indie Game Developer</span>
+        </h1>
+      </div>
+
+      <div class="menu-buttons">
+        <button id="startBtn" class="cyber-button">
+          <span class="cyber-button__glitch"></span>
+          <span class="cyber-button__text">Start Game</span>
+        </button>
+
+        <button id="instructionsBtn" class="cyber-button">
+          <span class="cyber-button__glitch"></span>
+          <span class="cyber-button__text">Instructions</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Instructions Screen -->
+    <div id="instructionsScreen" class="screen" style="display: none">
+      <div class="instructions-container">
+        <h2 class="instructions-title">Game Instructions</h2>
+
+        <div class="instructions-section">
+          <h3>Enemy Types</h3>
+          <div class="instruction-item">
+            <div class="instruction-icon standard-icon"></div>
+            <div class="instruction-text">
+              <h4>Standard Raven</h4>
+              <p>Green color. Average speed and health. Worth 1 point.</p>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="instruction-icon speedy-icon"></div>
+            <div class="instruction-text">
+              <h4>Speedy Raven</h4>
+              <p>
+                Yellow color. Fast but fragile. Moves in a zigzag pattern. Worth
+                2 points.
+              </p>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="instruction-icon tank-icon"></div>
+            <div class="instruction-text">
+              <h4>Tank Raven</h4>
+              <p>
+                Pink color. Slow but tough. Occasionally charges forward. Worth
+                3 points.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="instructions-section">
+          <h3>Power-Ups</h3>
+          <div class="instruction-item">
+            <div class="instruction-icon heart-icon"></div>
+            <div class="instruction-text">
+              <h4>Extra Life</h4>
+              <p>Pink heart. Gives you an additional life.</p>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="instruction-icon star-icon"></div>
+            <div class="instruction-text">
+              <h4>Clear Screen</h4>
+              <p>
+                Yellow star. Destroys all ravens on screen and awards points.
+              </p>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="instruction-icon clock-icon"></div>
+            <div class="instruction-text">
+              <h4>Slow Time</h4>
+              <p>Cyan clock. Slows down all ravens for 5 seconds.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="instructions-section">
+          <h3>How to Play</h3>
+          <p>
+            Click or tap on ravens to shoot them down. Build combos by hitting
+            ravens in succession for bonus points. Don't let ravens reach the
+            left side of the screen or you'll lose a life!
+          </p>
+        </div>
+
+        <button id="backToMenuBtn" class="cyber-button">
+          <span class="cyber-button__glitch"></span>
+          <span class="cyber-button__text">Back to Menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="screen" style="display: none">
+      <canvas id="canvas1"></canvas>
+
+      <div class="game-hud">
+        <div id="scoreDisplay" class="score-display">
+          <span class="score">Score: 0</span>
+          <span class="level">Level: 1</span>
+          <span class="lives">❤️❤️❤️</span>
+        </div>
+      </div>
+
+      <div id="gameOverControls" style="display: none">
+        <button id="restartBtn" class="cyber-button">
+          <span class="cyber-button__glitch"></span>
+          <span class="cyber-button__text">Restart</span>
+        </button>
+
+        <button id="mainMenuBtn" class="cyber-button">
+          <span class="cyber-button__glitch"></span>
+          <span class="cyber-button__text">Main Menu</span>
+        </button>
+      </div>
+    </div>
+
+    <script src="explosion.js"></script>
+    <script src="floatingText.js"></script>
+    <script src="particle.js"></script>
+    <script src="raven.js"></script>
+    <script src="powerUp.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
